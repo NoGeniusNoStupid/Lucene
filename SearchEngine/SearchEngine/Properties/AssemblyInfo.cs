@@ -14,12 +14,12 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// 将 ComVisible 设置为 false 会使此程序集中的类型
-// 对 COM 组件不可见。如果需要从 COM 访问此程序集中的某个类型，
-// 请针对该类型将 ComVisible 特性设置为 true。
+// 将 ComVisible 设置为 false 会使此程序集中的类别
+// 对 COM 组件不可见。如果需要从 COM 访问此程序集中的某个类别，
+// 请针对该类别将 ComVisible 特性设置为 true。
 [assembly: ComVisible(false)]
 
-// 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
+// 如果此项目向 COM 公开，则下列 GUID 用于类别库的 ID
 [assembly: Guid("d002954a-d962-4e1f-b811-75635ac7f8d9")]
 
 // 程序集的版本信息由下列四个值组成:

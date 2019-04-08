@@ -1,0 +1,137 @@
+﻿@using SearchEngine.Models;
+@model SearchEngine.Models.Books
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+@section head{
+    <script src="~/Content/Admin/javascript/validate.js"></script>
+}
+
+<main class="main-cont content mCustomScrollbar">
+    <div class="page-wrap">
+        <!--开始::内容-->
+        <section class="page-hd">
+            <header>
+                <h2 class="title">添加图书</h2>
+
+            </header>
+            <hr>
+        </section>
+        <form id="add" method="post" action="/Book/Create">
+            <div class="form-group-col-2">
+                <div class="form-label">图书标题：</div>
+                <div class="form-cont">
+                    <input type="text" name="Title" value="@Model.Title" placeholder="图书标题..." class="form-control form-boxed" style="width:300px;">
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">作者：</div>
+                <div class="form-cont">
+                    <input type="text" name="Author" value="@Model.Author" placeholder="作者..." class="form-control form-boxed" style="width:300px;">
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">图书类别：</div>
+                <div class="form-cont">
+                    <select style="width:300px;" name="CategoryId">
+                        @{
+                            List<Categories> CategoriesList = (List<Categories>)ViewData["Categories"];
+                            foreach (var item in CategoriesList)
+                            {
+                                if (item.Id==Model.CategoryId)
+                                {
+                                     <option value="@item.Id" selected>@item.Name</option>
+                                }
+                               else
+                                {
+                                     <option value="@item.Id">@item.Name</option>
+                                }
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">出版社：</div>
+                <div class="form-cont">
+                    <select style="width:300px;" name="PublisherId">
+                        @{
+                            List<Publishers> PublishersList = (List<Publishers>)ViewData["Publishers"];
+                            foreach (var item in PublishersList)
+                            {
+                                 if (item.Id==Model.PublisherId)
+                                {
+                                     <option value="@item.Id" selected>@item.Name</option>
+                                }
+                               else
+                                {
+                                     <option value="@item.Id">@item.Name</option>
+                                }
+                             
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">出版日期：</div>
+                <div class="form-cont">
+                    <input type="datetime" name="PublishDate" value="@Model.PublishDate.ToString("yyyy-MM-dd")" placeholder="出版日期..." class="form-control form-boxed" style="width:300px;">
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">ISBN：</div>
+                <div class="form-cont">
+                    <input type="text" name="ISBN" placeholder="ISBN..." value="@Model.ISBN" class="form-control form-boxed" style="width:300px;">
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">字数：</div>
+                <div class="form-cont">
+                    <input type="text" name="WordsCount" placeholder="字数..." value="@Model.WordsCount" class="form-control form-boxed" style="width:300px;">
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">价格：</div>
+                <div class="form-cont">
+                    <input type="text" name="UnitPrice" placeholder="价格..." value="@Model.UnitPrice" class="form-control form-boxed" style="width:300px;">
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">内容介绍：</div>
+                <div class="form-cont">
+                    <textarea class="form-control form-boxed" name="ContentDescription">@Model.ContentDescription</textarea>
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">作者介绍：</div>
+                <div class="form-cont">
+                    <textarea class="form-control form-boxed" name="AurhorDescription">@Model.AurhorDescription</textarea>
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">读者评论：</div>
+                <div class="form-cont">
+                    <textarea class="form-control form-boxed" name="EditorComment">@Model.EditorComment</textarea>
+                </div>
+            </div>
+            <div class="form-group-col-2">
+                <div class="form-label">目录：</div>
+                <div class="form-cont">
+                    <textarea class="form-control form-boxed" name="TOC">@Model.TOC</textarea>
+                </div>
+            </div>
+            <input type="hidden" value="@Model.Id" name="Id" />
+            <input type="hidden" value="@Model.Clicks" name="Clicks" />
+            <div class="form-group-col-2">
+                <div class="form-label"></div>
+                <div class="form-cont">
+                    <a href="#" class="btn btn-primary" onclick="check()">提交表单</a>
+                </div>
+            </div>
+        </form>
+        <!--开始::结束-->
+    </div>
+
+</main>

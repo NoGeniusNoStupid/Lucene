@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SearchEngine.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,9 @@ namespace SearchEngine
     {
         protected void Application_Start()
         {
+
+            IndexManager.GetInstance().StartThread();//开启线程，扫描Lucene.NET对应的队列
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

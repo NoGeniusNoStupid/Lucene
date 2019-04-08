@@ -1,0 +1,58 @@
+﻿
+@using SearchEngine.Models;
+@{
+    ViewBag.Title = "SearchDetail";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<main class="main-cont content mCustomScrollbar">
+    <div class="page-wrap">
+        <!--开始::内容-->
+        <section class="page-hd">
+            <header>
+                <h2 class="title">搜索记录</h2>
+            </header>
+            <hr>
+        </section>
+        @*<div>
+                <form method="post" action="/Publishers/Index">
+                    <input type="text" name="search" placeholder="搜索条件..." class="form-control form-boxed" style="width:300px;">
+                    &nbsp;  <input type="submit" class="btn btn-primary" value="搜索" />
+                    <br />
+                </form>
+            </div>
+            <div style="float:right">
+                <a href="/Publishers/Create" class="btn btn-primary">添加出版社</a>
+            </div>*@
+        <table class="table mb-15">
+            <thead>
+                <tr>
+                    @*<th><input type="checkbox" /></th>*@
+                    <th>序号</th>
+                    <th>搜索内容</th>
+                    <th>搜索时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    List<SearchDetail> mlist = (List<SearchDetail>)ViewData["List"];
+                    for (int i = 0; i < mlist.Count; i++)
+                    {
+                        <tr class="cen">
+
+                            <td>@Html.Raw(i + 1)</td>
+                            <td>@mlist[i].KeyWords</td>
+                            <td>@mlist[i].SearchDateTime</td>
+
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+        <div>
+            @Html.Raw(ViewData["PageBar"])
+        </div>
+        <!--开始::结束-->
+    </div>
+</main>

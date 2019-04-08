@@ -1,0 +1,42 @@
+﻿@model SearchEngine.Models.Categories
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+@section head{
+    <script src="~/Content/Admin/javascript/validate.js"></script>
+}
+
+<main class="main-cont content mCustomScrollbar">
+    <div class="page-wrap">
+        <!--开始::内容-->
+        <section class="page-hd">
+            <header>
+                <h2 class="title">编辑图书类别</h2>
+                @*<p class="title-description">
+                        两列式表单结构，一般针对产品详情，文章详情应用。
+                    </p>*@
+            </header>
+            <hr>
+        </section>
+        <form id="add" method="post" action="/Categories/Edit/@Model.Id">
+            <div class="form-group-col-2">
+                <div class="form-label">类别：</div>
+                <div class="form-cont">
+                    <input type="text" name="TypeName" value="@Model.Name" placeholder="类别..." class="form-control form-boxed" style="width:300px;">
+
+                </div>
+            </div>
+
+
+            <div class="form-group-col-2">
+                <div class="form-label"></div>
+                <div class="form-cont">
+                    <a href="#" class="btn btn-primary" onclick="check()">保存修改</a>
+                </div>
+            </div>
+        </form>
+        <!--开始::结束-->
+    </div>
+
+</main>
